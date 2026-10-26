@@ -23,6 +23,7 @@ mappings:
     s: "https://parking-madrid.example.org/resource/District/$(cod_distrito)"
     po:
       - [a, pm:District]
+      - ["rdfs:label", "$(distrito)", xsd:string]
       - ["pm:hasDistrictCode", "$(cod_distrito)", xsd:integer]
       - ["pm:hasDistrictName", "$(distrito)", xsd:string]
 
@@ -33,6 +34,7 @@ mappings:
     s: "https://parking-madrid.example.org/resource/Neighbourhood/$(cod_distrito)/$(cod_barrio)"
     po:
       - [a, pm:Neighbourhood]
+      - ["rdfs:label", "$(barrio)", xsd:string]
       - ["pm:hasNeighbourhoodCode", "$(cod_barrio)", xsd:integer]
       - ["pm:hasNeighbourhoodName", "$(barrio)", xsd:string]
 
@@ -49,7 +51,8 @@ mappings:
     s: "https://parking-madrid.example.org/resource/Parking/$(codigo_par)"
     po:
       - [a, pm:ParkingFacility]
-
+      - ["rdfs:label", "$(nombre_par)", xsd:string]
+      
       # Administrative relationships: objects must be IRIs
       - p: pm:locatedInDistrict
         o:
@@ -86,6 +89,7 @@ mappings:
     s: "https://parking-madrid.example.org/resource/District/$(codigo_distrito)"
     po:
       - [a, pm:District]
+      - ["rdfs:label", "$(distrito)", xsd:string]
       - ["pm:hasDistrictCode", "$(codigo_distrito)", xsd:integer]
       - ["pm:hasDistrictName", "$(distrito)", xsd:string]
 
@@ -96,7 +100,8 @@ mappings:
     s: "https://parking-madrid.example.org/resource/MonthlyOccupancy/$(codigo_par)/$(anio)-$(mes)"
     po:
       - [a, pm:MonthlyOccupancy]
-
+      - ["rdfs:label", "Occupancy of parking $(codigo_par) for $(anio)-$(mes)", xsd:string]
+      
       # IRI relationship to parking facility
       - p: pm:isOccupancyOf
         o:
